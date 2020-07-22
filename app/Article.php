@@ -13,6 +13,8 @@ class Article extends Model
     // {
     //     return 'slug';
     // }
-    
+    public function path(){
+        return route('articles.show', $this);
+    }
 
 }
