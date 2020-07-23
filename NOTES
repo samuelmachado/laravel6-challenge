@@ -1,0 +1,3 @@
+$articles->pluck('tags')->collapse()->pluck('name')->unique();
+//Itera o arr dentro
+$articles->pluck('tags.*.name)->collapse()->unique()

@@ -1,5 +1,8 @@
 <?php
 
+use App\Container;
+use App\Example;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   $container = new Container();
+   $container->bind('example', function() {
+    return new Example();
+   });
+   $ex = $container->resolve('example');
+   $ex->go();
+   ddd($ex);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
