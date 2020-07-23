@@ -21,6 +21,16 @@
             @error("body")
                 <p class="help is-danger">{{$errors->first('body')}}</p>
             @enderror
+
+
+            <select name="tags[]" id="" multiple>
+                @foreach ($tags as $tag)
+                    <option value="{{$tag->id}}"> {{$tag->name}}</option>
+                @endforeach
+            </select>
+            @error('tags')
+                <p>{{$message}}</p>
+            @enderror
             <input type="submit" value="Submit">
         </form>
     </div>
