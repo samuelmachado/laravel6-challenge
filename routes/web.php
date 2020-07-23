@@ -42,6 +42,5 @@ Route::post('/articles', 'ArticlesController@store');
 Route::get('/articles/{article}/edit', 'ArticlesController@edit');
 Route::put('/articles/{article}', 'ArticlesController@update');
 
-
-// /articles
-// /articles /
+Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'ContactController@store');
