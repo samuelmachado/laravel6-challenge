@@ -16,16 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-   $container = new Container();
-   $container->bind('example', function() {
-    return new Example();
-   });
-   $ex = $container->resolve('example');
-   $ex->go();
-   ddd($ex);
-});
+// Route::get('/', function () {
+//  ddd(resolve('App\Example'));
+// });
 
 Auth::routes();
+Route::get('/', 'PagesController@home');
 
 Route::get('/home', 'HomeController@index')->name('home');
