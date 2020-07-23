@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAssignmentsTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateAssignmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignments', function (Blueprint $table) {
-            $table->id();
-            $table->text('body');
-            $table->boolean('completed_at')->default(false);
-            $table->timestamps();
-            $table->timestamp('due_date')->nullable();
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -29,6 +27,6 @@ class CreateAssignmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('password_resets');
     }
 }
