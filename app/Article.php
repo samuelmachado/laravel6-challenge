@@ -17,8 +17,12 @@ class Article extends Model
         return route('articles.show', $this);
     }
 
-    public function user()
+    public function author()
     {
-
+        return $this->belongsTo('user', 'user_id');
     }
+    // public function user()
+    // {
+    //     return $this->belongsTo('user');
+    // }
 }
