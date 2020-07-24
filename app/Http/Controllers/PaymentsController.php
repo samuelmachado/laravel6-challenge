@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ProductPurchased;
 use App\Notifications\PaymentReceived;
 use App\User;
 use Illuminate\Http\Request;
@@ -26,7 +27,10 @@ class PaymentsController extends Controller
      */
     public function create()
     {
-        Notification::send(User::first(), new PaymentReceived(600));
+        // Notification::send(User::first(), new PaymentReceived(600));
+        ProductPurchased::dispatch('toy');
+        
+        // event(new ProductPurchased('toy'));
     }
 
     /**
