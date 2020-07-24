@@ -44,3 +44,4 @@ Route::put('/articles/{article}', 'ArticlesController@update');
 
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
+Route::get('payments/create','PaymentsController@create');
