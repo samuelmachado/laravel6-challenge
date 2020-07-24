@@ -39,7 +39,7 @@ class EventServiceProvider extends ServiceProvider
         //
     }
 
-    //Habilita o scan de eventos automáticos
+    //Hab ilita o scan de eventos automáticos
     public function shouldDiscoverEvents()
     {
         return true;

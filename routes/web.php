@@ -44,5 +44,14 @@ Route::put('/articles/{article}', 'ArticlesController@update');
 
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
-Route::get('payments/create','PaymentsController@create');
+Route::get('/payments/create','PaymentsController@create');
 Route::get('/notifications', 'UserNotificationsController@show');
+
+Route::get('/conversations', 'ConversationController@index');
+Route::get('/conversations/{conversation}', 'ConversationController@show');
+
+Route::post('/best-replies/{reply}', 'ConversationBestReplyController@store');
+
+Auth::routes(); 
+
+Route::get('/home', 'HomeController@index')->name('home');
