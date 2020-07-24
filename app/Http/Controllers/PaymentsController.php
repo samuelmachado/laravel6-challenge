@@ -26,7 +26,7 @@ class PaymentsController extends Controller
      */
     public function create()
     {
-        // Notification::send(User::first(), new PaymentReceived());
+        Notification::send(User::first(), new PaymentReceived(600));
     }
 
     /**
