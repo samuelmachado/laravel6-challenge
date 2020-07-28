@@ -1,6 +1,15 @@
 @extends('layout')
 
 @section('content')
+
+<div>
+    <li>
+        @can('edit_forum')
+        <a href="#">Edit Forum</a>
+        @endcan
+    </li>
+</div>
+
 <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
