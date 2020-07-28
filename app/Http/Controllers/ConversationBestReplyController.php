@@ -12,8 +12,7 @@ class ConversationBestReplyController extends Controller
     {
  
         $this->authorize('update', $reply->conversation);
-
-        $reply->conversation->best_reply_id = $reply->id;
+        $this->conversation->setBestReply($reply);
         $reply->conversation->save();
 
         return back();

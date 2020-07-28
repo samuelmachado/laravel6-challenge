@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Conversation;
+use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Http\Request;
 
 class ConversationController extends Controller
@@ -14,7 +15,7 @@ class ConversationController extends Controller
      */
     public function index()
     {
-      
+        
         return view('conversations.index', [
             'conversations' => Conversation::all()
         ]);
@@ -49,6 +50,7 @@ class ConversationController extends Controller
      */
     public function show(Conversation $conversation)
     {
+        // $this->authorize('view', $conversation);
         return view('conversations.show', [
             'conversation' => $conversation
         ]);
